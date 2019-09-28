@@ -11,11 +11,14 @@ import { Repository } from './../repository';
 export class GithubServiceService {
   user: User;
 
-  arr1 = [];
+  repositories;
+
+  oneRepo: Repository;
 
 
   constructor(private http: HttpClient) {
     this.user = new User(0, '', '');
+    this.oneRepo = new Repository(0, '', '');
   }
 
   personalDetailsRequest() {
@@ -43,10 +46,37 @@ export class GithubServiceService {
         reject(error);
       });
     });
-
     return detailsPromise;
   }
 
+  // Try to request for only one repo
+  requestOneRepo() {
+    const apiUrl = `${environment.apiUrl}sokkyyy/repos${environment.apiKey}`;
+    const oneRepoPromise = new Promise((resolve, reject) => {
+      this.http.get(apiUrl).toPromise().then(
+        response => {
+          this.oneRepo.id = response[0].id;
+          this.oneRepo.name = response[0].name;
+          this.oneRepo.url = response[0].html_url;
+
+          console.log(this.oneRepo);
+
+          resolve();
+        },
+        error => {
+          console.log('error');
+
+          reject(error);
+        });
+    });
+
+    return oneRepoPromise;
+
+  }
+
+
+
+// debug starting with one repo
   personalRepository() {
     const apiUrl = `${environment.apiUrl}sokkyyy/repos${environment.apiKey}`;
 
@@ -56,25 +86,27 @@ export class GithubServiceService {
       // name: string;
       // html_url: string;
     // }
-
+    let repoArr = [];
+    let repoObj = {
+      id: 0,
+      name: '',
+      url: ''
+    };
     const repoPromise = new Promise((resolve, reject) => {
       this.http.get(apiUrl).toPromise().then(
       response => {
-        //let repoArr = [];
-        let repoObj = {
-          id: 0,
-          name: '',
-          url: '',
-        };
         for (let i = 0; i < 10; i++) {
+          //  const repoObj = new Repository(response[i].id, response[i].name, response[i].html_url);
+          //  repoArr.push(repoObj);
           repoObj.id = response[i].id;
           repoObj.name = response[i].name;
           repoObj.url = response[i].html_url;
 
-          this.arr1.push(repoObj);
-          console.log(repoObj);
+          repoArr.push(repoObj);
         }
-        console.log(this.arr1);
+        this.repositories = repoArr;
+
+        console.log(this.repositories);
         resolve();
       },
       error => {

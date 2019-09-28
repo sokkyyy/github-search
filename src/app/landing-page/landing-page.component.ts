@@ -10,14 +10,19 @@ import { Repository } from './../repository';
 })
 export class LandingPageComponent implements OnInit {
   user: User;
-  repositories;
-
+ // repositories;
+  oneRepo: Repository; //!!HERE
   constructor( private githubService: GithubServiceService) { }
 
   ngOnInit() {
     this.githubService.personalDetailsRequest();
+    this.githubService.requestOneRepo();
+
     this.user = this.githubService.user;
-    this.repositories = this.githubService.personalRepository();
+    this.oneRepo = this.githubService.oneRepo;
+    console.log(this.user);
+   // this.repositories = this.githubService.personalRepository();
+  // console.log(this.repositories);
   }
 
 }
