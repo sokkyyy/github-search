@@ -5,6 +5,7 @@ import { environment } from './../../environments/environment';
 import { Repository } from './../repository';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,7 @@ export class GithubServiceService {
   user: User;
 
   oneRepo: Repository;
+
 
 
 
@@ -72,6 +74,7 @@ export class GithubServiceService {
     return oneRepoPromise;
 
   }
+
 
 
 }
