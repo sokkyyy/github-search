@@ -1,5 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import { GithubServiceService } from './../github-request/github-service.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +9,12 @@ import { GithubServiceService } from './../github-request/github-service.service
 })
 export class NavbarComponent implements OnInit {
 
-  searchItem: string;
 
-  findProfile() {
-    this.searchRequest.getUsersProfiles(this.searchItem);
-    console.log(this.searchRequest.user);
+
+
+
+  constructor() {
   }
-
-  constructor(private searchRequest: GithubServiceService) { }
 
   ngOnInit() {
   }
