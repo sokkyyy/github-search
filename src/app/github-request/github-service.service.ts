@@ -12,15 +12,9 @@ import { Repository } from './../repository';
 export class GithubServiceService {
   user: User;
 
-  oneRepo: Repository;
-
-
-
-
-
   constructor(private http: HttpClient) {
     this.user = new User(0, '', '');
-    this.oneRepo = new Repository(0, '', '');
+
 
   }
 
@@ -51,30 +45,4 @@ export class GithubServiceService {
     });
     return detailsPromise;
   }
-
-  // Try to request for only one repo
-  requestOneRepo() {
-    const apiUrl = `${environment.apiUrl}sokkyyy/repos${environment.apiKey}`;
-    const oneRepoPromise = new Promise((resolve, reject) => {
-      this.http.get(apiUrl).toPromise().then(
-        response => {
-          this.oneRepo.id = response[2].id;
-          this.oneRepo.name = response[2].name;
-          this.oneRepo.url = response[2].html_url;
-
-          resolve();
-        },
-        error => {
-          console.log('error');
-
-          reject(error);
-        });
-    });
-
-    return oneRepoPromise;
-
-  }
-
-
-
 }

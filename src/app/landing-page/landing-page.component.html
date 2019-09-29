@@ -1,22 +1,23 @@
 <div class="col 2"></div>
 
+<ng-progress></ng-progress>
 
-<div class="col 4">
-    <img [src]='user.avatarUrl' alt="landing-page-image" class="circle">
+<div class="row">
+
+    <div class="col 4">
+        <img [src]='user.avatarUrl' alt="landing-page-image" class="circle">
+    </div>
+    
+    <div class="col 4">
+        <ul class="collection with-header" >
+            <li class="collection-header">{{ user.username }}</li>
+            <li class="collection-header" >Repos:</li>
+            <div *ngFor='let oneRepo of repos; let i = index'>
+                <li class="collection-item" >{{ oneRepo.name }}</li>
+            </div>    
+                 
+        </ul>
+    </div>
 </div>
 
-<div class="col 4">
-    <ul class="collection with-header" >
-        <li class="collection-header">{{ user.username }}</li>
-        <li class="collection-header" >Repos:</li>    
-        <li class="collection-item">{{ oneRepo.name }}</li>     
-    </ul>
-</div>
-
-<div>
-    <p>REPOS</p>
-    <ul *ngFor='let oneRepo of repos; let i = index '>
-        <li>{{ oneRepo.name }}</li>
-    </ul>
-</div>
 
