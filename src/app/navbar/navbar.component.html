@@ -1,13 +1,12 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Github Search</a>
+      <a href="#!" class="brand-logo" routerLink='home' (keyup)='find'>Github Search</a>
 
       <div class="form-navbar">
         <form #githubForm='ngForm'>
-            <input type="text" id="searchBar" placeholder="Search for User" [(ngModel)]='searchItem' name='searchBar' class="search-bar">
+            <input routerLink='search' type="text" id="searchBar" placeholder="Search for User" [(ngModel)]='searchItem' name='searchBar' class="search-bar">
         </form>
       </div>
-
 
     </div>
 </nav>
