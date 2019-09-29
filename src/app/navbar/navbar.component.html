@@ -1,9 +1,14 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <form>
-          <input type="text" placeholder="Search">
-      </form>
+      <a href="#!" class="brand-logo">Github Search</a>
+
+      <div class="form-navbar">
+        <form #githubForm='ngForm'>
+            <input type="text" id="searchBar" placeholder="Search for User" [(ngModel)]='searchItem' name='searchBar' class="search-bar">
+        </form>
+      </div>
+
+
     </div>
 </nav>
   
