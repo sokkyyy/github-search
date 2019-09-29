@@ -15,7 +15,6 @@ export class GithubServiceService {
   constructor(private http: HttpClient) {
     this.user = new User(0, '', '');
 
-
   }
 
   personalDetailsRequest() {
@@ -45,4 +44,37 @@ export class GithubServiceService {
     });
     return detailsPromise;
   }
+
+  getUsersProfiles(user) {
+    const userApiUrl = `${environment.apiUrl}${user}${environment.apiKey}`;
+    
+    interface ApiResponse {
+      id: number;
+      login: string;
+      avatar_url: string;
+    }
+
+    const usersPromise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>(userApiUrl).toPromise().then(
+      response => {
+        this.user.id = response.id;
+        this.user.username = response.login;
+        this.user.avatarUrl = response.avatar_url;
+
+        resolve();
+      },
+      error => {
+        // HANDLE BETTER
+        console.log('error');
+
+        reject(error);
+      });
+    });
+    return usersPromise;
+
+  }
+
+
+
+
 }
