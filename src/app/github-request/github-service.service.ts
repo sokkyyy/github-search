@@ -11,6 +11,7 @@ import { Repository } from './../repository';
 })
 export class GithubServiceService {
   user: User;
+  repos;
 
   constructor(private http: HttpClient) {
     this.user = new User(0, '', '');
@@ -47,7 +48,7 @@ export class GithubServiceService {
 
   getUsersProfiles(user) {
     const userApiUrl = `${environment.apiUrl}${user}${environment.apiKey}`;
-    
+
     interface ApiResponse {
       id: number;
       login: string;
@@ -72,6 +73,23 @@ export class GithubServiceService {
     });
     return usersPromise;
 
+  }
+
+  getUsersRepositories(user) {
+    const apiReposUrl = `${environment.apiUrl}${user}/repos${environment.apiKey}`;
+    const userRepoPromise = new Promise((resolve, reject) => {
+      this.http.get(apiReposUrl).toPromise().then(
+        response => {
+          this.repos = response;
+          resolve();
+        },
+        error => {
+          console.log('error');
+          reject(error);
+        }
+      );
+    });
+    return userRepoPromise;
   }
 
 

@@ -4,15 +4,26 @@
 
       <div class="form-navbar">
         <form #githubForm='ngForm'>
-            <input (keyup.enter)='findProfile()' type="text" id="searchBar" placeholder="Search for User" 
+            <input (keyup)='findProfile()' type="text" id="searchBar" placeholder="Search for User" 
                   [(ngModel)]='searchItem' name='searchItem' class="search-bar">
         </form>
       </div>
     </div> 
 </nav>
 
-<div>
-    Ray: {{searchItem}}
-    <p>User Name: {{user.username}}</p>
-    <img [src]='user.avatarUrl' >
+<div class="row">
+    <div class="col 2"></div>
+
+    <div class="col 4">
+        Ray: {{searchItem}}
+        <p>User Name: {{user.username}}</p>
+        <img [src]='user.avatarUrl' >
+    </div>
+
+    <div class="col 4">
+        <ul *ngFor='let repo of repos'>
+            <li>{{repo.name}}</li>
+        </ul>
+    </div>
+
 </div>
