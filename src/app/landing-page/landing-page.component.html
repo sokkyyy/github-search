@@ -11,23 +11,42 @@
         <img [src]='user.avatarUrl' alt="landing-page-image" class="circle">
         <div class="divider"></div>
         <div class="section">
-            <span></span>
-            <span></span>
+            <span> ({{user.username}}) </span>
+            <span> Followers: {{ user.followers }} </span>
+            <span> Following: {{ user.following }} </span>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <a [href]='user.githubUrl'>
+                <button>Visit Github Profile</button>
+            </a>
         </div>
     </div>
     
     <div class="col 4" repoSection>
-        <ul class="collection with-header" >
-            <li class="collection-header">{{ user.username }}</li>
-            <li class="collection-header" >Repos:</li>
-            <div *ngFor='let oneRepo of repos; let i = index'>
-                <li class="collection-item" >{{ oneRepo.name }}</li>
-            </div>    
-                 
-        </ul>
+        
+        <div class="container">
+            <h5>Repositories</h5>
+            <div class="divider"></div>
+            <div class="section">
+                <ul class="collection with-header" *ngFor='let oneRepo of repos'>
+                    <li class="collection-header">{{oneRepo.name}}</li>
+                    <li class="collection-item" *ngIf='oneRepo.description'>{{ oneRepo.description }}</li>
+                    <span>{{ oneRepo.created_at | dateCount }}</span>
+                    <a [href]='oneRepo.html_url' >
+                        <button>Visit Github Repo</button>
+                    </a>
+                    <div class='divider'></div>   
+                </ul>
+
+            </div>
+
+        </div>
+
+      
     </div>
 
-    <div class="col 2"></div>
+
 </div>
 
 

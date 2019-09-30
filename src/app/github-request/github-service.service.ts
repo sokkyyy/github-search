@@ -58,6 +58,9 @@ export class GithubServiceService {
       id: number;
       login: string;
       avatar_url: string;
+      followers: number;
+      following: number;
+      html_url: string;
     }
 
     const usersPromise = new Promise((resolve, reject) => {
@@ -66,6 +69,9 @@ export class GithubServiceService {
         this.user.id = response.id;
         this.user.username = response.login;
         this.user.avatarUrl = response.avatar_url;
+        this.user.followers = response.followers;
+        this.user.following = response.following;
+        this.user.githubUrl = response.html_url;
 
         resolve();
       },
