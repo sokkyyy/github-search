@@ -19,7 +19,7 @@
         </div>
         <div class="divider"></div>
         <div class="section">
-            <a [href]='user.githubUrl' class="waves-effect waves-light btn lime accent-2">Visit Github Profile</a>
+            <a [href]='user.githubUrl' style='margin-left: 100px;' class="waves-effect waves-light btn lime accent-2">Profile</a>
         </div>
     </div>
     
@@ -27,15 +27,15 @@
         
         <div class="container">
             <h5>Repositories</h5>
-            <div class="divider"></div>
+
             <div class="section">
                 <ul class="collection with-header" *ngFor='let oneRepo of repos'>
                     <li class="collection-header" appHighlight>
                         {{oneRepo.name}}    
-                        <a [href]='oneRepo.html_url' class="waves-effect waves-light btn lime accent-2" style="float: right; margin-bottom: 10px; font-size:10px">In Github</a>
+                        <a [href]='oneRepo.html_url' class="waves-effect waves-light btn lime accent-2" style="float: right; margin-bottom: 10px; font-size:10px">Visit</a>
                     </li>
                     <li class="collection-item" *ngIf='oneRepo.description'>{{ oneRepo.description }}</li>
-                    <span class="creationDate">Days since Creation: {{ oneRepo.created_at | dateCount }}</span>
+                    <span class="creationDate"><i class="material-icons">timelapse</i> {{ oneRepo.created_at | dateCount }}</span>
                     <div class='divider'></div>   
                 </ul>
             </div>
