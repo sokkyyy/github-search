@@ -30,10 +30,15 @@
             <div class="divider"></div>
             <div class="section">
                 <ul class="collection with-header" *ngFor='let oneRepo of repos'>
-                    <li class="collection-header">{{oneRepo.name}}</li>
+                    <li class="collection-header" appHighlight>
+                        {{oneRepo.name}}
+                        <a [href]='oneRepo.html_url' >
+                            <button>Visit Github Repo</button>
+                        </a>
+                    </li>
                     <li class="collection-item" *ngIf='oneRepo.description'>{{ oneRepo.description }}</li>
-                    <span>{{ oneRepo.created_at | dateCount }}</span>
-                    <a [href]='oneRepo.html_url' >
+                    <span>Days since Creation: {{ oneRepo.created_at | dateCount }}</span>
+                    <a [href]='oneRepo.html_url'>
                         <button>Visit Github Repo</button>
                     </a>
                     <div class='divider'></div>   
