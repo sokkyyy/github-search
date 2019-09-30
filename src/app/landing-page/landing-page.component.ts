@@ -13,7 +13,7 @@ import { Repository } from './../repository';
 export class LandingPageComponent implements OnInit {
   user: User;
 
-  repos;
+  repos: Repository;
 
   constructor(private githubService: GithubServiceService, private http: HttpClient) {  }
 

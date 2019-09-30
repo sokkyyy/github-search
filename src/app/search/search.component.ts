@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { GithubServiceService } from './../github-request/github-service.service';
 import { User } from './../user';
+import { Repository } from './../repository';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
 
   searchItem: string;
   user: User;
-  repos;
+  repos: Repository;
 
 
   findProfile() {
