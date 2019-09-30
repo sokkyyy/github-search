@@ -1,19 +1,20 @@
 <ng-progress></ng-progress>
-<div class="row">
+<div class="row grey lighten-2">
     <form class="col s12" #githubForm='ngForm'>
         <div class="row">
             
-            <div class="input-field col s4" style="margin-left: 40%">
-                <label></label>
-                <input (keyup.enter)='findProfile()' type="text" class="validate" id="searchBar" placeholder="Search for User" 
+            <div class="input-field col s4" style="margin-left: 30%">
+                
+                <input (keyup.enter)='findProfile()' type="text" class="validate blue-grey lighten-4" id="searchBar" placeholder="Search for User" 
                       [(ngModel)]='searchItem' name='searchItem' autofocus>
+                <label for="searchBar">Search for User</label>
             </div>
         </div>
     </form>
 </div>
 
 
-<div class="row" *ngIf='user.username'>
+<div class="row grey lighten-2" *ngIf='user.username'>
 
 
     <div class="col s4">
@@ -27,20 +28,20 @@
         <img [src]='user.avatarUrl'>
         <a [href]='user.githubUrl' style='margin-left: 100px;' class="waves-effect waves-light btn lime accent-2">Visit Profile</a>
     </div>
-
+ 
     <div class="col s6" repoInfo>
-        <h5>Repositories</h5>
+        <h5>Repositories({{ repos.length }})</h5>
         <div class="section">
             <ul class="collection with-header" *ngFor='let repo of repos'>
                 <li class="collection-header" appHighlight>
                     {{ repo.name }}
-                    <a [href]='repo.html_url' class="waves-effect waves-light btn lime accent-2" style="float: right; font-size:10px">Visit</a>
+                    <a [href]='repo.html_url' class="waves-effect waves-light btn lime accent-2" visit>Visit</a>
                 </li>
             
                 <li class="collection-item" *ngIf='repo.description'>
                 {{ repo.description }}
                 </li>
-                <span class="creationDate"><i class="material-icons" style="margin-top: 5px;">timelapse</i> {{ repo.created_at | dateCount }}</span>
+                <div class="creationDate"><i class="material-icons" style="margin-top: 5px;">timelapse</i> {{ repo.created_at | dateCount }}</div>
                 <div class='divider'></div>
             </ul>
         </div>

@@ -1,14 +1,14 @@
-<nav>
+<nav class="blue-grey darken-4">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo" routerLink='home' routerLinkActive='active' >Github Search</a>
+      <a href="#!" class="brand-logo" style="margin-left: 30px;" routerLink='home' routerLinkActive='active' >Github Search</a>
 
-      <div class="form-navbar" style="float:right">
+      <div class="form-navbar" style="float:right; margin-right: 30px;">
         <form #githubForm='ngForm'>
             <a routerLink='search' routerLinkActive='active' type="text" id="searchBar" placeholder="Search for User" 
-                class="search-bar" >Search</a>
+                class="search-bar" >
+                <i class="material-icons">search</i>Search</a>
         </form>
       </div>
-
     </div> 
 </nav>
 

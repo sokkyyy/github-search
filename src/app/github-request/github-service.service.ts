@@ -26,7 +26,7 @@ export class GithubServiceService {
       avatar_url: string;
       followers: number;
       following: number;
-      url: string;
+      html_url: string;
     }
 
     const detailsPromise = new Promise((resolve, reject) => {
@@ -37,7 +37,7 @@ export class GithubServiceService {
         this.user.avatarUrl = response.avatar_url;
         this.user.followers = response.followers;
         this.user.following = response.following;
-        this.user.githubUrl = response.url;
+        this.user.githubUrl = response.html_url;
 
         resolve();
       },
@@ -76,7 +76,7 @@ export class GithubServiceService {
         resolve();
       },
       error => {
-        // HANDLE BETTER
+
         console.log('error');
 
         reject(error);

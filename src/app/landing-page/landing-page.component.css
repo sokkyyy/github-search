@@ -25,9 +25,14 @@
     padding-left: 5px;
 }
 .creationDate {
-    margin-left: 20px;
+    display: block;
+    height: 35px;
+    width: 100px;
     font-size: 13px;
+    background-color: white;
+    float: right;
 }
+
 a {
     width: 100px;
     height: 30px;

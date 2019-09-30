@@ -1,10 +1,10 @@
 .search-bar {
     display: block;
     font-size: 18px;
-    color: black;
+    color: white;
     text-decoration: none;
 }
 .search-bar :hover {
-    color: white;
+    color: rgb(172, 129, 129);
 }
  
