@@ -1,15 +1,22 @@
 <app-navbar></app-navbar>
-<div class="col 2"></div>
+
 
 <ng-progress></ng-progress>
 
 <div class="row">
+    
+    <div class="col 2"></div>
 
-    <div class="col 4">
+    <div class="col 4" profile>
         <img [src]='user.avatarUrl' alt="landing-page-image" class="circle">
+        <div class="divider"></div>
+        <div class="section">
+            <span></span>
+            <span></span>
+        </div>
     </div>
     
-    <div class="col 4">
+    <div class="col 4" repoSection>
         <ul class="collection with-header" >
             <li class="collection-header">{{ user.username }}</li>
             <li class="collection-header" >Repos:</li>
@@ -19,6 +26,8 @@
                  
         </ul>
     </div>
+
+    <div class="col 2"></div>
 </div>
 
 

@@ -14,7 +14,7 @@ export class GithubServiceService {
 
 
   constructor(private http: HttpClient) {
-    this.user = new User(0, '', '');
+    this.user = new User(0, '', '', 0, 0, '');
   }
 
   personalDetailsRequest() {
@@ -24,6 +24,9 @@ export class GithubServiceService {
       id: number;
       login: string;
       avatar_url: string;
+      followers: number;
+      following: number;
+      url: string;
     }
 
     const detailsPromise = new Promise((resolve, reject) => {
@@ -32,6 +35,9 @@ export class GithubServiceService {
         this.user.id = response.id;
         this.user.username = response.login;
         this.user.avatarUrl = response.avatar_url;
+        this.user.followers = response.followers;
+        this.user.following = response.following;
+        this.user.githubUrl = response.url;
 
         resolve();
       },
