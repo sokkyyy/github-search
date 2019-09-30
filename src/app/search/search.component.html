@@ -1,29 +1,52 @@
-<nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo" routerLink='home'>Github Search</a>
-      <div class="form-navbar">
-        <form #githubForm='ngForm'>
-            <input (keyup.enter)='findProfile()' type="text" id="searchBar" placeholder="Search for User" 
-                  [(ngModel)]='searchItem' name='searchItem' class="search-bar">
-        </form>
-      </div>
-    </div> 
-</nav>
-
-
+<ng-progress></ng-progress>
 <div class="row">
-    <div class="col 2"></div>
+    <form class="col s12" #githubForm='ngForm'>
+        <div class="row">
+            
+            <div class="input-field col s4" style="margin-left: 40%">
+                <label></label>
+                <input (keyup.enter)='findProfile()' type="text" class="validate" id="searchBar" placeholder="Search for User" 
+                      [(ngModel)]='searchItem' name='searchItem' autofocus>
+            </div>
+        </div>
+    </form>
+</div>
 
-    <div class="col 4">
-        Ray: {{searchItem}}
-        <p>User Name: {{user.username}}</p>
-        <img [src]='user.avatarUrl' >
+
+<div class="row" *ngIf='user.username'>
+
+
+    <div class="col s4">
+        <div class="section">
+            <span>( {{user.username}} )</span>
+            
+            <span profileSpan class="grey darken-3">{{ user.followers }} Followers</span> 
+            <span profileSpan class="green darken-3">Following {{ user.following }}</span>
+            
+        </div>
+        <img [src]='user.avatarUrl'>
+        <a [href]='user.githubUrl' style='margin-left: 100px;' class="waves-effect waves-light btn lime accent-2">Visit Profile</a>
     </div>
 
-    <div class="col 4">
-        <ul *ngFor='let repo of repos'>
-            <li>{{repo.name}}</li>
-        </ul>
+    <div class="col s6" repoInfo>
+        <h5>Repositories</h5>
+        <div class="section">
+            <ul class="collection with-header" *ngFor='let repo of repos'>
+                <li class="collection-header" appHighlight>
+                    {{ repo.name }}
+                    <a [href]='repo.html_url' class="waves-effect waves-light btn lime accent-2" style="float: right; font-size:10px">Visit</a>
+                </li>
+            
+                <li class="collection-item" *ngIf='repo.description'>
+                {{ repo.description }}
+                </li>
+                <span class="creationDate"><i class="material-icons" style="margin-top: 5px;">timelapse</i> {{ repo.created_at | dateCount }}</span>
+                <div class='divider'></div>
+            </ul>
+        </div>
     </div>
 
 </div>
+
+
+

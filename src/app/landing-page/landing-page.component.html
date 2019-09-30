@@ -30,13 +30,17 @@
 
             <div class="section">
                 <ul class="collection with-header" *ngFor='let oneRepo of repos'>
+                    
                     <li class="collection-header" appHighlight>
                         {{oneRepo.name}}    
                         <a [href]='oneRepo.html_url' class="waves-effect waves-light btn lime accent-2" style="float: right; margin-bottom: 10px; font-size:10px">Visit</a>
                     </li>
+
                     <li class="collection-item" *ngIf='oneRepo.description'>{{ oneRepo.description }}</li>
                     <span class="creationDate"><i class="material-icons">timelapse</i> {{ oneRepo.created_at | dateCount }}</span>
-                    <div class='divider'></div>   
+                    
+                    <div class='divider'></div>
+
                 </ul>
             </div>
 
