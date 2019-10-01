@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Description
-[Github s Search](https://github.com/sokkyyy/github-search) is a web application that allows users to search for Github users and their repositories. Users can use the links in the app to navigate to the users' profiles and also the repositories on Github. 
+[Github Search](https://github.com/sokkyyy/github-search) is a web application that allows users to search for Github users and their repositories. Users can use the links in the app to navigate to the users' profiles and also the repositories on Github. 
 
 
 ## Getting Started
