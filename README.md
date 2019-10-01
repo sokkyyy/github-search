@@ -2,26 +2,37 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
-## Development server
+## Description
+[Github s Search](https://github.com/sokkyyy/github-search) is a web application that allows users to search for Github users and their repositories. Users can use the links in the app to navigate to the users' profiles and also the repositories on Github. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for testing purposes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
+You need to a web browser, preferably: 
+* Chrome
+* Mozilla Firefox
 
-## Build
+### Running 
+Clone the repository or download it.
+Install node modules for starting the local dev server:
+```
+npm install
+```
+Start the local server:
+```
+ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Built With
+* Angular
+* TypeScript
+* JavaScript
+* Materialize
 
-## Running unit tests
+## Author
+* **Raymond Ndegwa** - [GitHub](https://github.com/sokkyyy).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Acknowledgments
+* Moringa School 
